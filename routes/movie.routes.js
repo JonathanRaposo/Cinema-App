@@ -13,7 +13,7 @@ router.get('/movies/create', (req, res) => {
 
 // process form to create movie:
 router.post('/movies/create', (req, res, next) => {
-    console.log('body: ', req.body)
+
     const { title, director, description, image, stars, showtimes } = req.body;
 
     if (!title || !director || !description || !stars || !showtimes) {
@@ -26,7 +26,6 @@ router.post('/movies/create', (req, res, next) => {
 
     Movie.create({ title, director, description, image, stars: newStarsArr, showtimes: newShowtimesArr })
         .then((newMovie) => {
-            console.log('New movie added: ', newMovie)
             res.redirect('/movies');
         })
         .catch((err) => {
@@ -64,7 +63,6 @@ router.post('/movies/edit', (req, res, next) => {
 
     Movie.findByIdAndUpdate(id, { title, director, description, image, stars: newStarsArr, showtimes: newShowtimesArr }, { new: true })
         .then((updatedMovie) => {
-            console.log('Updated movie: ', updatedMovie);
             res.redirect(`/movies/${updatedMovie._id}`);
         })
         .catch((err) => {
@@ -76,7 +74,7 @@ router.post('/movies/edit', (req, res, next) => {
 // POST route to delete a movie:
 
 router.post('/movies/delete', (req, res, next) => {
-    console.log('Query: ', req.query)
+
     const { id } = req.query;
 
     Movie.findByIdAndDelete(id)
@@ -107,7 +105,7 @@ router.get('/movies', (req, res, next) => {
 //  GET route to find a specific movie: 
 
 router.get('/movies/:id', (req, res, next) => {
-    console.log('params: ', req.params)
+
     const { id } = req.params;
 
     Movie.findOne({ _id: id })
@@ -122,7 +120,7 @@ router.get('/movies/:id', (req, res, next) => {
 
 //  Search for a movie :
 router.get('/search', (req, res, next) => {
-    console.log('query: ', req.query);
+
     const { q: query } = req.query;
 
     Movie.find(
