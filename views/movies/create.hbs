@@ -1,0 +1,26 @@
+
+<h1 id="add-movie-heading">Add movie</h1>
+<form action="/movies/create" method="POST" id="create-form">
+  
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title">
+
+    <label for="director">Director:</label>
+  <input type="text" id="director" name="director">
+
+    <label for="stars">stars:</label>
+  <input type="text" id="stars" name="stars" placeholder="separate actors by a coma">
+
+  <label for="image">Image</label>
+  <input type="text" id="image" name="image" placeholder="image Url">
+   
+   <label for="description">Description:</label>
+   <textarea id="description"  name="description"cols="45" rows="10"></textarea>
+
+   <label for="showtimes">Showtimes:</label>
+   <input type="text" id="showtimes" name="showtimes" placeholder="separate times by coma">
+     <button type="submit" id="create-btn">Add</button>
+    {{#if errorMessage}}
+    <p id="error-message">{{errorMessage}}</p>
+    {{/if}}
+</form>

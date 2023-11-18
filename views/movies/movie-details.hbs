@@ -1,0 +1,44 @@
+
+<div id="movie-details-wrapper">
+     <div id="img-wrapper">
+         <img src="{{movie.image}}" alt="movie cover">
+     </div>
+     <div id="content-wrapper">
+        <h1>{{movie.title}}</h1>
+        <h3>Director: {{movie.director}}</h3>
+        <h4>Stars</h4>
+         <ul>
+            {{#each movie.stars}}
+              <li>{{this}}</li>
+            {{/each}}
+         </ul>
+         <p>{{movie.description}}</p>
+         <h4>Showtimes:</h4>
+          <ul>
+            {{#each movie.showtimes}}
+              
+                <li id="showtime">{{this}} |</li>
+             
+            {{/each}}
+          </ul>
+          <div id="links-wrapper">
+             
+             <a href="/movies/edit?id={{movie._id}}" id="edit-link">Edit |</a>
+             <form action="/movies/delete?id={{movie._id}}" id="delete-form" method="POST">
+             <button id="delete-btn">Delete</button>
+             </form>
+
+          </div>
+     <a href="/movies" id="back-link">Go back</a>
+
+     </div>
+     <script>
+
+document.querySelector('#delete-form').addEventListener('submit', showMessage);
+function showMessage() {
+    alert('This will delete this movie permanently from your database.')
+}
+
+     </script>
+</div>
+

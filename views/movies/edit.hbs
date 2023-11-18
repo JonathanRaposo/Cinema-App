@@ -1,0 +1,26 @@
+
+<h1 id="edit-movie-heading">Edit Movie</h1>
+<form action="/movies/edit?id={{movie._id}}" method="POST" id="edit-form">
+  
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" value="{{movie.title}}">
+
+    <label for="director">Director:</label>
+  <input type="text" id="director" name="director" value="{{movie.director}}">
+
+    <label for="stars">stars:</label>
+  <input type="text" id="stars" name="stars" placeholder="separate actors by a coma" value="{{movie.stars}}">
+
+  <label for="image">Image</label>
+  <input type="text" id="image" name="image" placeholder="image Url" value="{{movie.image}}">
+   
+   <label for="description">Description:</label>
+   <textarea id="description"  name="description"cols="45" rows="10">{{movie.description}}</textarea>
+
+   <label for="showtimes">Showtimes:</label>
+   <input type="text" id="showtimes" name="showtimes" placeholder="separate times by coma" value="{{movie.showtimes}}">
+     <button type="submit" id="update-btn">Update</button>
+    {{#if errorMessage}}
+    <p id="error-message">{{errorMessage}}</p>
+    {{/if}}
+</form>

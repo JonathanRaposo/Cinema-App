@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+/*  nav bar styles */
+nav{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00B7FF;
+}
+nav ul {
+   margin-right: 60px;
+   list-style: none;
+}
+nav ul li{
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    transition: letter-spacing .15s;
+    
+}
+nav ul li:hover{
+    letter-spacing: 2px;
+}
+
+nav .nav-link{
+    color: #fff;
+   
+}
+nav form {
+    padding-left: 50px;
+}
+ nav form input {
+    width: 250px;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1em;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+
+}
+#search-btn{
+     padding: 8px ;
+     border: none;
+     border-radius: 6px ;
+     font-size: 1em;
+     font-family: 'Poppins', sans-serif;
+     cursor: pointer;
+     margin-left: 10px;
+     transition:background-color .15s;
+
+}
+#search-btn:hover{
+    background-color: aquamarine;
+}
+#no-result-msg{
+    text-align: center;
+}
+
+
+/* Home page styles */
+#HomePage-container{
+ background-image: url('../images/cinema-bg.jpeg');
+ background-repeat: no-repeat;
+ background-size: cover;
+ /* background-position: center; */
+ width: 100%;
+ height: 100vh;
+ position: relative;
+}
+#HomePage-container div {
+    position: absolute;
+    top: 100px;
+    left: 1000px;
+    
+}
+#heading-wrapper h1{
+ font-size: 3em;
+ margin-top: 0;
+ margin-bottom: 0;
+ color: #fff;
+}
+#heading-wrapper p {
+  padding: 10px;
+  border: none;
+  text-align: center;
+  border-radius: 26px;
+  background-color: #fff;
+  color:#00B7FF;
+}
+
+a{
+    text-decoration: none;
+}
+/* movie list styles */
+#movies-container{
+    width: 800px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#movies-container a{
+    color:#00B7FF;
+}
+
+
+/* movie styles */
+#movie-wrapper{
+    text-align: center;
+    padding: 10px;
+}
+#movie-wrapper img{
+    width: 200px;
+   border-radius: 10px;
+}
+
+
+#heading,
+#para{
+    text-align: center;
+}
+
+#details-link{
+    padding: 8px;
+    border-radius: 10px;
+    transition: background-color .15s;
+}
+#details-link:hover{
+    background-color: #00B7FF;
+    color: #fff;
+}
+
+/* styles for a specifi movie */
+#movie-details-wrapper{
+    width: 900px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+ #img-wrapper img{
+    width: 200;
+    border-radius: 10px;
+}
+#content-wrapper{
+    padding-left: 40px;
+    text-align: justify;
+}
+#content-wrapper ul{
+    padding-left: 0;
+}
+#content-wrapper ul #showtime{
+    list-style: none;
+    display: inline-block;
+}
+#content-wrapper #links-wrapper{
+    display: flex;
+    margin-bottom: 20px;
+    
+}
+#edit-link{
+ color: coral;
+ transition: text-decoration .15s;
+}
+#edit-link:hover{
+    text-decoration: underline;
+}
+#delete-btn {
+    padding-left: 4px;
+    color: coral;
+    background-color: #fff;
+    border:none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    transition: text-decoration .15s;
+}
+#delete-btn:hover{
+    text-decoration: underline;
+}
+.error{
+    text-align: center;
+}
+
+#back-link{
+    color:#00B7FF;
+    transition: text-decoration .15s;
+}
+#back-link:hover{
+    text-decoration: underline;
+}
+
+
+/* forms: create, update , delete */
+#add-movie-heading,
+#edit-movie-heading{
+    text-align: center;
+    color:#00B7FF;
+}
+
+#create-form,
+#edit-form{
+    width: 450px;
+    margin: 30px auto;
+    padding: 30px;
+    box-shadow: 0px 3px 5px #818181;
+    border-radius: 6px;
+    text-align: center;
+}
+ input {
+    width: 300px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    margin:10px;
+    outline: none;
+ }
+label{
+    display:block;
+    
+}
+#create-btn,
+#update-btn{
+    min-width: 80px;
+    margin: 20px auto;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: #00B7FF;
+    transition: background-color .15s;
+    
+}
+#create-btn:hover{
+    background-color: #0084b8;
+}
+textarea {
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    border: 1px solid #ccc;
+
+}
+
+#error-message{
+    color: red;
+    text-align: center;
+}

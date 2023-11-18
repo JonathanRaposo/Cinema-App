@@ -1,0 +1,31 @@
+<nav id="search-header">
+    <form action="/search" method="GET">
+    <input type="text" placeholder="Search movie" name="q">
+      <button type="submit"id="search-btn">Search movie</button>
+    
+    </form>
+
+     <ul>
+        <li>
+            <a href="/movies" class="nav-link">Movies</a>
+        </li>
+        <li>
+            <a href="/movies/create" class="nav-link">Add Movie</a>
+        </li>
+     </ul>
+</nav>
+
+
+<h2 id="heading">Cinema</h2>
+<p id="para">Click on the movie to check the showtimes!</p>
+<div id="movies-container">
+  
+    {{#each movies}}
+       <div id="movie-wrapper">
+          <img src="{{image}}">
+          <h3>{{title}}</h3>
+          <a href="/movies/{{_id}}"id="details-link">See more</a>
+       </div>
+    {{/each}}
+
+</div>
