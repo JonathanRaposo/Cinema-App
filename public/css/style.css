@@ -13,6 +13,9 @@ nav{
     justify-content: space-between;
     align-items: center;
     background-color: #00B7FF;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 nav ul {
    margin-right: 60px;
