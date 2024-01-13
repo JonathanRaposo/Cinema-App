@@ -230,6 +230,7 @@ a{
  }
 label{
     display:block;
+    margin: 4px;
     
 }
 #create-btn,
@@ -254,6 +255,7 @@ textarea {
     font-family: 'Poppins', sans-serif;
     outline: none;
     border: 1px solid #ccc;
+    margin-top: 10px;
 
 }
 

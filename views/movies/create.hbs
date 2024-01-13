@@ -1,6 +1,6 @@
 
 <h1 id="add-movie-heading">Add movie</h1>
-<form action="/movies/create" method="POST" id="create-form">
+<form action="/movies/create" method="POST" enctype="multipart/form-data"  id="create-form">
   
   <label for="title">Title:</label>
   <input type="text" id="title" name="title">
@@ -11,8 +11,10 @@
     <label for="stars">stars:</label>
   <input type="text" id="stars" name="stars" placeholder="separate actors by a coma">
 
-  <label for="image">Image</label>
-  <input type="text" id="image" name="image" placeholder="image Url">
+  <label for="image">Click here to upload image
+      <input type="file" id="image" name="movie-cover" hidden>
+  </label>
+
    
    <label for="description">Description:</label>
    <textarea id="description"  name="description"cols="45" rows="10"></textarea>

@@ -1,10 +1,9 @@
-
+require('dotenv').config({ path: '../.env' })
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/Movie.model');
 
-
-
+const fileUploader = require('../config/cloudinary.config');
 
 // GET route to show form to add movie:
 router.get('/movies/create', (req, res) => {
@@ -12,9 +11,10 @@ router.get('/movies/create', (req, res) => {
 })
 
 // process form to create movie:
-router.post('/movies/create', (req, res, next) => {
+router.post('/movies/create', fileUploader.single('movie-cover'), (req, res, next) => {
 
-    const { title, director, description, image, stars, showtimes } = req.body;
+
+    const { title, director, description, stars, showtimes } = req.body;
 
     if (!title || !director || !description || !stars || !showtimes) {
         res.render('movies/create.hbs', { errorMessage: 'All fields must be filled.' });
@@ -24,7 +24,14 @@ router.post('/movies/create', (req, res, next) => {
     const newStarsArr = stars.split(',');
     const newShowtimesArr = showtimes.split(',');
 
-    Movie.create({ title, director, description, image, stars: newStarsArr, showtimes: newShowtimesArr })
+    Movie.create({
+        title,
+        director,
+        description,
+        image: req.file.path,
+        stars: newStarsArr,
+        showtimes: newShowtimesArr
+    })
         .then((newMovie) => {
             res.redirect('/movies');
         })
