@@ -55,10 +55,17 @@ router.get('/movies/edit', (req, res) => {
 })
 //  POST route to process form:
 
-router.post('/movies/edit', (req, res, next) => {
+router.post('/movies/edit', fileUploader.single('movie-cover'), (req, res, next) => {
 
     const { id } = req.query;
-    const { title, director, description, image, stars, showtimes } = req.body;
+    const { title, director, description, stars, existingImage, showtimes } = req.body;
+
+    let imageUrl;
+    if (req.file) {
+        imageUrl = req.file.path;
+    } else {
+        imageUrl = existingImage;
+    }
 
     if (!title || !director || !description || !stars || !showtimes) {
         res.render('movies/create.hbs', { errorMessage: 'All fields must be filled.' });
@@ -68,7 +75,14 @@ router.post('/movies/edit', (req, res, next) => {
     const newStarsArr = stars.split(',');
     const newShowtimesArr = showtimes.split(',');
 
-    Movie.findByIdAndUpdate(id, { title, director, description, image, stars: newStarsArr, showtimes: newShowtimesArr }, { new: true })
+    Movie.findByIdAndUpdate(id, {
+        title, director,
+        description,
+        image: imageUrl,
+        stars: newStarsArr,
+        showtimes: newShowtimesArr
+    },
+        { new: true })
         .then((updatedMovie) => {
             res.redirect(`/movies/${updatedMovie._id}`);
         })

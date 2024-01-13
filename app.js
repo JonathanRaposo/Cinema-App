@@ -16,8 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-
-
 // Routes here:
 
 const indexRoutes = require('./routes/index.routes');

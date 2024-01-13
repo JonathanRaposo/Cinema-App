@@ -1,6 +1,6 @@
 
 <h1 id="edit-movie-heading">Edit Movie</h1>
-<form action="/movies/edit?id={{movie._id}}" method="POST" id="edit-form">
+<form action="/movies/edit?id={{movie._id}}" method="POST" id="edit-form" enctype="multipart/form-data">
   
   <label for="title">Title:</label>
   <input type="text" id="title" name="title" value="{{movie.title}}">
@@ -11,8 +11,11 @@
     <label for="stars">stars:</label>
   <input type="text" id="stars" name="stars" placeholder="separate actors by a coma" value="{{movie.stars}}">
 
-  <label for="image">Image</label>
-  <input type="text" id="image" name="image" placeholder="image Url" value="{{movie.image}}">
+ 
+  <label for="image">Click here to upload image
+      <input type="file" id="image" name="movie-cover" hidden>
+  </label>
+  <input type="text" id="image" name="existingImage" value="{{movie.image}}" hidden>
    
    <label for="description">Description:</label>
    <textarea id="description"  name="description"cols="45" rows="10">{{movie.description}}</textarea>
