@@ -158,6 +158,9 @@ a{
     padding-left: 40px;
     text-align: justify;
 }
+#content-wrapper h1{
+    color: red;
+}
 #content-wrapper ul{
     padding-left: 0;
 }
